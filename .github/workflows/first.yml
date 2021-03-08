@@ -10,7 +10,7 @@ jobs:
       run: |
         date
         wget https://appsec-tools-docs.s3.amazonaws.com/Coverity/cov-analysis-linux64-2020.06.sh
-        chmod +x Coverity/cov-analysis-linux64-2020.06.sh
+        chmod +x cov-analysis-linux64-2020.06.sh
         curl  -fLsS --user committer-burlington:Tester0_123! https://coverity.identityguard.com/downloadFile.htm?fn=license.dat -o license.dat
         ./cov-analysis-linux64-2018.06.sh -q \
         --installation.dir=cov-analysis-linux64-2018.06 \
