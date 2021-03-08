@@ -10,5 +10,5 @@ jobs:
       run: |
         date
         wget https://appsec-tools-docs.s3.amazonaws.com/Coverity/cov-analysis-linux64-2020.12.tar.gz | tar -xzf -
-        curl -fLsS --user committer-burlington:Tester0_123! https://coverity.identityguard.com/downloadFile.htm?fn=license.dat -o license.dat
+        curl  -fLsS --user committer-burlington:Tester0_123! https://coverity.identityguard.com/downloadFile.htm?fn=license.dat -o license.dat
     
