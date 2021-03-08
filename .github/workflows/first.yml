@@ -15,4 +15,5 @@ jobs:
         date
         curl -ksS --user $COV_USER:$COVERITY_PASSPHRASE $COV_URL/downloadFile.htm?fn=$CSA.tar.gz | tar -xzf -
         curl -ksS --user committer:Tester0_123! -o $CSA/bin/license.dat $COV_URL/downloadFile.htm?fn=license.dat
+        ls -la
         $CSA/bin/cov-configure --java
