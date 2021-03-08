@@ -7,4 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: date
+    - run: wget https://appsec-tools-docs.s3.amazonaws.com/Coverity/cov-analysis-linux64-2020.06.sh
     
