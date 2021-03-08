@@ -1,6 +1,10 @@
 name: coverity
-
 on: push
+env:
+      COV_URL: https://coverity.identityguard.com
+      COV_USER: committer-burlington
+      COVERITY_PASSPHRASE: ${{ secrets.COVERITY_PASSPHRASE }}
+      CSA: cov-analysis-linux64-2020.12
 
 jobs:
   ubuntu:
@@ -9,13 +13,6 @@ jobs:
     - name: Coverity Download
       run: |
         date
-        wget https://appsec-tools-docs.s3.amazonaws.com/Coverity/cov-analysis-linux64-2020.06.sh -o cov-analysis-linux64-2020.06.sh 
-        rem chmod +x cov-analysis-linux64-2020.06.sh
-        curl  -fLsS --user committer-burlington:Tester0_123! https://coverity.identityguard.com/downloadFile.htm?fn=license.dat -o license.dat
-        ./cov-analysis-linux64-2018.06.sh -q \
-        --installation.dir=cov-analysis-linux64-2018.06 \
-        --license.region=0 \
-        --license.agreement=agree \
-        --license.type.choice=0 \
-        --license.cov.path=/tmp/license.dat \
-        cov-analysis-linux64-2020.06/bin/cov-configure --java
+        curl -ksS --user $COV_USER:$COVERITY_PASSPHRASE $COV_URL/downloadFile.htm?fn=$CSA.tar.gz | tar -xzf -
+        curl -ksS --user committer:Tester0_123! -o $CSA/bin/license.dat $COV_URL/downloadFile.htm?fn=license.dat
+        $CSA/bin/cov-configure --java
